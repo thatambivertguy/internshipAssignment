@@ -4,6 +4,10 @@ const {db,Users}=require('./Database/db')
 const passport=require('./passport/setuppassport')
 const app=express()
 
+const hostname = process.env.HOST;
+const port = process.env.PORT;
+
+
 app.set('view engine','hbs')
 
 app.use(express.json())
@@ -86,7 +90,10 @@ function checkLoggedIn(req, res, next) {
 }
 
 db.sync().then(()=>{
-    app.listen(4000,()=>{
-        console.log('server started at http://localhost:4000')
-    })
+    // app.listen(4000,()=>{
+    //     console.log('server started at http://localhost:4000')
+    // })
+    app.listen(port,()=>{
+    console.log(`Server running at http://${hostname}:${port}/`);
+})
 })
