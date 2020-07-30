@@ -77,7 +77,7 @@ app.get('/home',checkLoggedIn,(req,res)=>{
         res.render('usertypeB')
 
     }else if(req.user.usertype=='C'){
-        res.render('usertypeC')
+        res.render('userTypeC')
 
     }
 })
