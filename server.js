@@ -76,7 +76,7 @@ app.get('/home',checkLoggedIn,(req,res)=>{
     }else if(req.user.usertype=='B'){
         res.render('usertypeB')
 
-    }else{
+    }else if(req.user.usertype=='C'){
         res.render('usertypeC')
 
     }
@@ -90,10 +90,10 @@ function checkLoggedIn(req, res, next) {
 }
 
 db.sync().then(()=>{
-    // app.listen(4000,()=>{
-    //     console.log('server started at http://localhost:4000')
-    // })
-    app.listen(port,()=>{
-    console.log(`Server running at http://${hostname}:${port}/`);
-})
+    app.listen(4000,()=>{
+        console.log('server started at http://localhost:4000')
+    })
+    // app.listen(port,()=>{
+    // console.log(`Server running at http://${hostname}:${port}/`);
+//})
 })
