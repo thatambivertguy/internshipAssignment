@@ -21,7 +21,7 @@ app.use(
       resave: false,
       saveUninitialized: true,
       cookie: {
-        maxAge: 1000 * 60 * 60,
+    
       },
     }),
   )
@@ -67,7 +67,7 @@ app.post('/signup', (req, res) => {
   })
 
 app.get('/',checkLoggedIn,(req,res)=>{
-    res.send('Welcome Home')
+    res.redirect('/home')
 })
 
 app.get('/home',checkLoggedIn,(req,res)=>{
@@ -90,10 +90,10 @@ function checkLoggedIn(req, res, next) {
 }
 
 db.sync().then(()=>{
-    app.listen(4000,()=>{
-        console.log('server started at http://localhost:4000')
-    })
-    // app.listen(port,()=>{
-    // console.log(`Server running at http://${hostname}:${port}/`);
-//})
+    // app.listen(4000,()=>{
+    //     console.log('server started at http://localhost:4000')
+    // })
+    app.listen(port,()=>{
+    console.log(`Server running at http://${hostname}:${port}/`);
+})
 })
